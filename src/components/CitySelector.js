@@ -4,6 +4,13 @@ import {Row, Col, FormControl, Button } from 'react-bootstrap';
 const CitySelector = ({ onSelectButtonClick }) => {
   const [city, setCity] = useState(null);
 
+  const handleKeypress = e => {
+
+  if (e.keyCode === 13) {
+    CitySelector();
+  }
+};
+
   return (
     <>
       <Row>
@@ -16,6 +23,7 @@ const CitySelector = ({ onSelectButtonClick }) => {
           <FormControl
             placeholder="Città.."
             onChange={e => setCity(e.target.value)}
+            onKeyPress={handleKeypress}
           />
         </Col>
       </Row>
